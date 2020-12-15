@@ -13,3 +13,4 @@ Content
 -> movie(video file) made by adding all animation files
 -> audio file used in movie
 -> 12 texture images ( sun + universe + 8 planets + spaceship + asteroid )
+-> missing one 110 MB file in this repo number 12.
