@@ -1,0 +1,69 @@
+#VRML V2.0 utf8
+
+
+NavigationInfo {headlight FALSE
+type ["EXAMINE", "ANY"]
+}
+Viewpoint {
+    position 0 0 10000
+    orientation 0 0 1 0
+    description "Front"
+	jump TRUE
+}
+ 	    
+	   
+	 DEF A  Transform {
+   translation 0 500 -200
+	 children [
+	 Shape {
+appearance Appearance {
+material DEF matiii Material { } }
+geometry Text {
+string [
+" THE END"
+ ]
+fontStyle FontStyle { size 500 justify "MIDDLE" }
+}
+}	    
+	   ]
+      }
+	 DEF A Transform {
+   translation 0 0 -300
+	 children [
+	 Shape {
+appearance Appearance {
+material DEF mat Material { } }
+geometry Text {
+string [
+
+" THANKS"]
+fontStyle FontStyle { size 500 justify "MIDDLE" }
+}
+}	    
+	   ]
+      }
+	  DEF Clock1 TimeSensor {
+	cycleInterval 3.0
+	loop TRUE
+	},
+	  DEF PlanetPath1 OrientationInterpolator {
+	key [ 0.0, 0.50, 1.0 ]
+	keyValue [
+	0.0 0.0 1.0 0.0,
+	0.0 0.0 1.0 3.14,
+	0.0 0.0 1.0 6.28
+	]
+	}
+	DEF ci ScalarInterpolator {
+	key [ 0 0.5 1 ] 
+	keyValue [ 0 1 0]
+	} 
+	DEF ts TimeSensor { cycleInterval 1 loop TRUE }
+	ROUTE ts.fraction_changed TO ci.set_fraction
+	ROUTE ci.value_changed TO mat.set_transparency
+ 
+
+	ROUTE ci.value_changed TO matiii.set_transparency
+
+	#ROUTE PlanetPath1.value_changed TO A.set_rotation
+	ROUTE Clock1.fraction_changed TO PlanetPath1.set_fraction

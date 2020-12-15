@@ -1,0 +1,290 @@
+#VRML V2.0 utf8
+Viewpoint {
+    position 0 0 30
+    orientation 0 0 1 0
+    description "Front"
+	jump TRUE
+}
+Viewpoint {
+    position 0 30 0
+    orientation 1 0 0 -1.57
+    description "Top"
+	jump TRUE
+}
+Viewpoint {
+    position 0 6.5 0
+    orientation 1 0 0 -1.57
+    description "Exact"
+	jump TRUE
+}
+Viewpoint {
+    position 0.1 30.5 0
+    orientation 1 .005 0.25 -1.57
+    description "Exacto"
+	jump TRUE
+}
+Background{
+rightUrl["uni.jpg"]
+leftUrl["uni.jpg"]
+frontUrl["uni.jpg"]
+backUrl["uni.jpg"]
+topUrl["uni.jpg"]
+bottomUrl["uni.jpg"]
+}
+Group {
+ 	children [
+ 	# Stationary Sun
+ 	Shape {
+ 			appearance Appearance{
+				material DEF mat Material  { emissiveColor 0 0 0 }
+					texture ImageTexture {
+					url "sun.jpg"
+					repeatS TRUE
+					repeatT TRUE
+				}
+			}
+ 			geometry Sphere { radius 2.5 }
+ 		},
+
+	DEF Planet1 Transform {
+	translation 3.5 0.0 0.0
+	center -3.5 0.0 0.0
+	children Shape {
+	appearance Appearance{
+				material Material { emissiveColor 0 0 0 }
+					texture ImageTexture {
+					url "mercury.png"
+					repeatS TRUE
+					repeatT TRUE
+				}
+			}
+	geometry Sphere { radius 0.1 }
+	}
+	},
+	DEF Planet2 Transform {
+	translation 4.2 0.0 0.0
+	center -4.2 0.0 0.0
+	children Shape {
+	appearance Appearance{
+				material Material { emissiveColor 0 0 0 }
+					texture ImageTexture {
+					url "venus.jpg"
+					repeatS TRUE
+					repeatT TRUE
+				}
+			}
+	geometry Sphere { radius 0.2 }
+	}
+	},
+	DEF Planet3 Transform {
+	translation 5.2 0.0 0.0
+	center -5.2 0.0 0.0
+	children Shape {
+	appearance Appearance{
+				material Material { emissiveColor 0 0 0 }
+					texture ImageTexture {
+					url "earthmap.jpg"
+					repeatS TRUE
+					repeatT TRUE
+				}
+			}
+	geometry Sphere { radius 0.45 }
+	}
+	},
+	DEF Planet4 Transform {
+	translation 6.5 0.0 0.0
+	center -6.5 0.0 0.0
+	children Shape {
+	appearance Appearance{
+				material Material { emissiveColor 0 0 0 }
+					texture ImageTexture {
+					url "mars.jpg"
+					repeatS TRUE
+					repeatT TRUE
+				}
+			}
+	geometry Sphere { radius 0.5 }
+	}
+	},
+	DEF Planet5 Transform {
+	translation 10.25 0.0 0.0
+	center -10.5 0.0 0.0
+	rotation 0 1 0 0.78
+	children Shape {
+	appearance Appearance{
+				material Material { emissiveColor 0 0 0 }
+					texture ImageTexture {
+					url "jupiter.jpg"
+					repeatS TRUE
+					repeatT TRUE
+				}
+			}
+	geometry Sphere { radius 0.9 }
+	}
+	},
+	DEF Planet6 Transform {
+	translation 13.5 0.0 0.0
+	center -13.5 0.0 0.0
+	children Shape {
+	appearance Appearance{
+				material Material { emissiveColor 0 0 0 }
+					texture ImageTexture {
+					url "saturn.jpg"
+					repeatS TRUE
+					repeatT TRUE
+				}
+			}
+	geometry Sphere { radius 0.8 }
+	}
+	},
+	DEF Planet7 Transform {
+	translation 15.5 0.0 0.0
+	center -15.5 0.0 0.0
+	children Shape {
+	appearance Appearance{
+				material Material { emissiveColor 0 0 0 }
+					texture ImageTexture {
+					url "uranus.jpg"
+					repeatS TRUE
+					repeatT TRUE
+				}
+			}
+	geometry Sphere { radius 0.7 }
+	}
+	},
+	DEF Planet8 Transform {
+	translation 17.3 0.0 0.0
+	center -17.3 0.0 0.0
+	children Shape {
+	appearance Appearance{
+				material Material { emissiveColor 0 0 0 }
+					texture ImageTexture {
+					url "neptune.jpg"
+					repeatS TRUE
+					repeatT TRUE
+				}
+			}
+	geometry Sphere { radius 0.65 }
+	}
+	},
+	# Animation clocks, one per planet
+	DEF Clock1 TimeSensor {
+	cycleInterval 3.0
+	loop TRUE
+	},
+	DEF Clock2 TimeSensor {
+	cycleInterval 4.5
+	loop TRUE
+	},
+	DEF Clock3 TimeSensor {
+	cycleInterval 10.0
+	loop TRUE
+	},
+	DEF Clock4 TimeSensor {
+	cycleInterval 15.5
+	loop TRUE
+	},
+	DEF Clock5 TimeSensor {
+	cycleInterval 25.5
+	loop TRUE
+	},
+	DEF Clock6 TimeSensor {
+	cycleInterval 36.5
+	loop TRUE
+	},
+	DEF Clock7 TimeSensor {
+	cycleInterval 70.5
+	loop TRUE
+	},
+	DEF Clock8 TimeSensor {
+	cycleInterval 100.5
+	loop TRUE
+	},
+	# Animation paths, one per planet
+	DEF PlanetPath1 OrientationInterpolator {
+	key [ 0.0, 0.50, 1.0 ]
+	keyValue [
+	0.0 0.0 1.0 0.0,
+	0.0 0.0 1.0 3.14,
+	0.0 0.0 1.0 6.28
+	]
+	},
+	DEF PlanetPath2 OrientationInterpolator {
+	key [ 0.0, 0.50, 1.0 ]
+	keyValue [
+	0.0 0.0 1.0 0.0,
+	0.0 0.0 1.0 3.14,
+	0.0 0.0 1.0 6.28
+	]
+	},
+	DEF PlanetPath3 OrientationInterpolator {
+	key [ 0.0, 0.50, 1.0 ]
+	keyValue [
+	0.0 0.0 1.0 0.0,
+	0.0 0.0 1.0 3.14,
+	0.0 0.0 1.0 6.28
+	]
+	},
+	DEF PlanetPath4 OrientationInterpolator {
+	key [ 0.0, 0.50, 1.0 ]
+	keyValue [
+	0.0 0.0 1.0 0.0,
+	0.0 0.0 1.0 3.14,
+	0.0 0.0 1.0 6.28
+	]
+	},
+	DEF PlanetPath5 OrientationInterpolator {
+	key [ 0.0, 0.50, 1.0 ]
+	keyValue [
+	0.0 0.0 1.0 0.0,
+	0.0 0.0 1.0 3.14,
+	0.0 0.0 1.0 6.28
+	]
+	},DEF PlanetPath6 OrientationInterpolator {
+	key [ 0.0, 0.50, 1.0 ]
+	keyValue [
+	0.0 0.0 1.0 0.0,
+	0.0 0.0 1.0 3.14,
+	0.0 0.0 1.0 6.28
+	]
+	},DEF PlanetPath7 OrientationInterpolator {
+	key [ 0.0, 0.50, 1.0 ]
+	keyValue [
+	0.0 0.0 1.0 0.0,
+	0.0 0.0 1.0 3.14,
+	0.0 0.0 1.0 6.28
+	]
+	},DEF PlanetPath8 OrientationInterpolator {
+	key [ 0.0, 0.50, 1.0 ]
+	keyValue [
+	0.0 0.0 1.0 0.0,
+	0.0 0.0 1.0 3.14,
+	0.0 0.0 1.0 6.28
+	]
+	}
+	DEF ci ScalarInterpolator {
+	key [ 0 0.5 1 ] 
+	keyValue [ 0 1 0]
+	} 
+	DEF ts TimeSensor { cycleInterval 1 loop TRUE }
+	]
+}
+ROUTE Clock1.fraction_changed TO PlanetPath1.set_fraction
+ROUTE Clock2.fraction_changed TO PlanetPath2.set_fraction
+ROUTE Clock3.fraction_changed TO PlanetPath3.set_fraction
+ROUTE Clock4.fraction_changed TO PlanetPath4.set_fraction
+ROUTE Clock5.fraction_changed TO PlanetPath5.set_fraction
+ROUTE Clock6.fraction_changed TO PlanetPath6.set_fraction
+ROUTE Clock7.fraction_changed TO PlanetPath7.set_fraction
+ROUTE Clock8.fraction_changed TO PlanetPath8.set_fraction
+ROUTE PlanetPath1.value_changed TO Planet1.set_rotation
+ROUTE PlanetPath2.value_changed TO Planet2.set_rotation
+ROUTE PlanetPath3.value_changed TO Planet3.set_rotation
+ROUTE PlanetPath4.value_changed TO Planet4.set_rotation
+ROUTE PlanetPath5.value_changed TO Planet5.set_rotation
+ROUTE PlanetPath6.value_changed TO Planet6.set_rotation
+ROUTE PlanetPath7.value_changed TO Planet7.set_rotation
+ROUTE PlanetPath8.value_changed TO Planet8.set_rotation
+#ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO mat.set_transparency
+ 
